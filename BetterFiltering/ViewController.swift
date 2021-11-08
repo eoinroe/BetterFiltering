@@ -64,6 +64,6 @@ class ViewController: NSViewController, MTKViewDelegate {
     
     // MARK: - Actions
     @IBAction func adjustNormalStrength(_ sender: NSSlider) {
-        renderer.normalStrength = 1 / sender.floatValue 
+        
     }
 }

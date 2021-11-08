@@ -24,16 +24,14 @@ class Renderer: NSObject {
     // Flag for viewport size changes.
     var viewportSizeDidChange: Bool = false
     
-    // Image sourced from https://freepbr.com/materials/cavern-deposits-pbr/
-    var heightmap: MTLTexture!
-    
     // Procedurally generated render texture
-    var normalmap: MTLTexture!
+    var filteredTexture: MTLTexture!
     
     // Image sourced from https://freepbr.com/materials/cavern-deposits-pbr/
     var sourceImage: MTLTexture!
     
-    var normalStrength: Float = 0.01
+    var startTime: Double!
+    var currentTime: Double = 0
     
     // Initialize a renderer by setting up the GPU, and screen backing-store.
     init(device: MTLDevice, renderDestination: RenderDestinationProvider) {
@@ -43,6 +41,7 @@ class Renderer: NSObject {
         super.init()
         
         loadMetal()
+        startTime = Date().timeIntervalSince1970
     }
     
     // Schedule a draw to happen at a new size.
@@ -58,12 +57,12 @@ class Renderer: NSObject {
             updateAppState()
             
             if let computeCommandEncoder = commandBuffer.makeComputeCommandEncoder() {
-                
+            
                 // Set a label to identify this compute pass in a captured Metal frame.
                 computeCommandEncoder.label = "MyComputeEncoder"
-                
+            
                 doComputePass(computeEncoder: computeCommandEncoder)
-                
+            
                 // Finish encoding commands.
                 computeCommandEncoder.endEncoding()
             }
@@ -99,7 +98,7 @@ class Renderer: NSObject {
         let defaultLibrary = device.makeDefaultLibrary()!
         
         // Create the kernel function.
-        guard let kernelFunction = defaultLibrary.makeFunction(name: "tangentSpaceNormals") else {
+        guard let kernelFunction = defaultLibrary.makeFunction(name: "better_filtering") else {
             fatalError("The shader function couldn't be created.")
         }
         
@@ -140,19 +139,17 @@ class Renderer: NSObject {
         let textureLoader = MTKTextureLoader.init(device: device)
         
         do {
-            try heightmap = textureLoader.newTexture(name: "cavern-deposits_height", scaleFactor: 1.0, bundle: Bundle.main, options: [:])
-            try sourceImage = textureLoader.newTexture(name: "normals", scaleFactor: 1.0, bundle: Bundle.main, options: [:])
+            try sourceImage = textureLoader.newTexture(name: "RGBA_Noise", scaleFactor: 1.0, bundle: Bundle.main, options: [:])
         } catch let error {
             print("Failed to create the texture, error: ", error)
         }
         
-        print("Texture dimensions: ", heightmap.width, "x", heightmap.height)
-        // print("Texture dimensions: \(heightmap.width) x \(heightmap.height)")
-        
-        let descriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba32Float, width: heightmap.width, height: heightmap.height, mipmapped: false)
+        // Hardcoding values for now
+        let descriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba32Float, width: 640, height: 360, mipmapped: false)
+        // let descriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba32Float, width: 500, height: 500, mipmapped: false)
         descriptor.usage = [.shaderRead, .shaderWrite]
         
-        normalmap = device.makeTexture(descriptor: descriptor)
+        filteredTexture = device.makeTexture(descriptor: descriptor)
     }
     
     // Updates any app state.
@@ -161,6 +158,8 @@ class Renderer: NSObject {
         if viewportSizeDidChange {
             viewportSizeDidChange = false
         }
+        
+        currentTime = Date().timeIntervalSince1970 - startTime
     }
 
     func doComputePass(computeEncoder: MTLComputeCommandEncoder) {
@@ -169,17 +168,24 @@ class Renderer: NSObject {
         
         // Set compute command encoder state.
         computeEncoder.setComputePipelineState(computePipeline)
-        computeEncoder.setTexture(heightmap, index: 0)
-        computeEncoder.setTexture(normalmap, index: 1)
-        computeEncoder.setBytes(&normalStrength, length: MemoryLayout<Float>.size, index: 0)
+        computeEncoder.setTexture(sourceImage, index: 0)
+        computeEncoder.setTexture(filteredTexture, index: 1)
+        
+        var resolution = SIMD2<Float>(Float(filteredTexture.width),
+                                      Float(filteredTexture.height))
+        
+        computeEncoder.setBytes(&resolution, length: MemoryLayout<SIMD2<Float>>.stride, index: 0)
+        
+        var time = Float(currentTime)
+        computeEncoder.setBytes(&time, length: MemoryLayout<Float>.size, index: 1)
         
         // Calculate Threads per Threadgroup.
         let w = computePipeline.threadExecutionWidth
         let h = computePipeline.maxTotalThreadsPerThreadgroup / w
         let threadsPerThreadgroup = MTLSizeMake(w, h, 1)
         
-        let threadsPerGrid = MTLSize(width: heightmap.width,
-                                     height: heightmap.height,
+        let threadsPerGrid = MTLSize(width:  filteredTexture.width,
+                                     height: filteredTexture.height,
                                      depth: 1)
          
         // Metal is able to calculate how the grid (in this case, an image or texture)
@@ -196,8 +202,7 @@ class Renderer: NSObject {
         renderEncoder.setRenderPipelineState(renderPipeline)
         
         // Setup textures for the fragment shader.
-        renderEncoder.setFragmentTexture(normalmap, index: 0)
-        // renderEncoder.setFragmentTexture(sourceImage, index: 0)
+        renderEncoder.setFragmentTexture(filteredTexture, index: 0)
         
         // Draw a quad which fills the screen.
         renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6)

@@ -16,13 +16,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6F8588A225D5A9AF00B202A9 /* MTLTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTLTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F8588A225D5A9AF00B202A9 /* BetterFiltering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterFiltering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8588A525D5A9AF00B202A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F8588A725D5A9AF00B202A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6F8588A925D5A9B000B202A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F8588AC25D5A9B000B202A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F8588AE25D5A9B000B202A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F8588AF25D5A9B000B202A9 /* MTLTemplate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MTLTemplate.entitlements; sourceTree = "<group>"; };
+		6F8588AF25D5A9B000B202A9 /* BetterFiltering.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BetterFiltering.entitlements; sourceTree = "<group>"; };
 		6F8588B625D5DEE200B202A9 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		6F8588BA25D5E13C00B202A9 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,7 +41,7 @@
 		6F85889925D5A9AF00B202A9 = {
 			isa = PBXGroup;
 			children = (
-				6F8588A425D5A9AF00B202A9 /* MTLTemplate */,
+				6F8588A425D5A9AF00B202A9 /* BetterFiltering */,
 				6F8588A325D5A9AF00B202A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,12 +49,12 @@
 		6F8588A325D5A9AF00B202A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6F8588A225D5A9AF00B202A9 /* MTLTemplate.app */,
+				6F8588A225D5A9AF00B202A9 /* BetterFiltering.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6F8588A425D5A9AF00B202A9 /* MTLTemplate */ = {
+		6F8588A425D5A9AF00B202A9 /* BetterFiltering */ = {
 			isa = PBXGroup;
 			children = (
 				6F8588A525D5A9AF00B202A9 /* AppDelegate.swift */,
@@ -64,17 +64,17 @@
 				6F8588A925D5A9B000B202A9 /* Assets.xcassets */,
 				6F8588AB25D5A9B000B202A9 /* Main.storyboard */,
 				6F8588AE25D5A9B000B202A9 /* Info.plist */,
-				6F8588AF25D5A9B000B202A9 /* MTLTemplate.entitlements */,
+				6F8588AF25D5A9B000B202A9 /* BetterFiltering.entitlements */,
 			);
-			path = MTLTemplate;
+			path = BetterFiltering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6F8588A125D5A9AF00B202A9 /* MTLTemplate */ = {
+		6F8588A125D5A9AF00B202A9 /* BetterFiltering */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F8588B225D5A9B000B202A9 /* Build configuration list for PBXNativeTarget "MTLTemplate" */;
+			buildConfigurationList = 6F8588B225D5A9B000B202A9 /* Build configuration list for PBXNativeTarget "BetterFiltering" */;
 			buildPhases = (
 				6F85889E25D5A9AF00B202A9 /* Sources */,
 				6F85889F25D5A9AF00B202A9 /* Frameworks */,
@@ -84,9 +84,9 @@
 			);
 			dependencies = (
 			);
-			name = MTLTemplate;
+			name = BetterFiltering;
 			productName = ComputeNormals;
-			productReference = 6F8588A225D5A9AF00B202A9 /* MTLTemplate.app */;
+			productReference = 6F8588A225D5A9AF00B202A9 /* BetterFiltering.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6F85889D25D5A9AF00B202A9 /* Build configuration list for PBXProject "MTLTemplate" */;
+			buildConfigurationList = 6F85889D25D5A9AF00B202A9 /* Build configuration list for PBXProject "BetterFiltering" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F8588A125D5A9AF00B202A9 /* MTLTemplate */,
+				6F8588A125D5A9AF00B202A9 /* BetterFiltering */,
 			);
 		};
 /* End PBXProject section */
@@ -279,17 +279,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MTLTemplate/MTLTemplate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BetterFiltering/BetterFiltering.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97C5WDHM6Q;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = MTLTemplate/Info.plist;
+				INFOPLIST_FILE = BetterFiltering/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Roe-Co.MTLTemplate";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Roe-Co.BetterFiltering";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -300,17 +300,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MTLTemplate/MTLTemplate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = BetterFiltering/BetterFiltering.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97C5WDHM6Q;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = MTLTemplate/Info.plist;
+				INFOPLIST_FILE = BetterFiltering/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Roe-Co.MTLTemplate";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Roe-Co.BetterFiltering";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -319,7 +319,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6F85889D25D5A9AF00B202A9 /* Build configuration list for PBXProject "MTLTemplate" */ = {
+		6F85889D25D5A9AF00B202A9 /* Build configuration list for PBXProject "BetterFiltering" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F8588B025D5A9B000B202A9 /* Debug */,
@@ -328,7 +328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F8588B225D5A9B000B202A9 /* Build configuration list for PBXNativeTarget "MTLTemplate" */ = {
+		6F8588B225D5A9B000B202A9 /* Build configuration list for PBXNativeTarget "BetterFiltering" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F8588B325D5A9B000B202A9 /* Debug */,

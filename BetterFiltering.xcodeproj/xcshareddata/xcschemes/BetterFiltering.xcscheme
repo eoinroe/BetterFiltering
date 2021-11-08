@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6F8588A125D5A9AF00B202A9"
-               BuildableName = "MTLTemplate.app"
-               BlueprintName = "MTLTemplate"
-               ReferencedContainer = "container:MTLTemplate.xcodeproj">
+               BuildableName = "BetterFiltering.app"
+               BlueprintName = "BetterFiltering"
+               ReferencedContainer = "container:BetterFiltering.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F8588A125D5A9AF00B202A9"
-            BuildableName = "MTLTemplate.app"
-            BlueprintName = "MTLTemplate"
-            ReferencedContainer = "container:MTLTemplate.xcodeproj">
+            BuildableName = "BetterFiltering.app"
+            BlueprintName = "BetterFiltering"
+            ReferencedContainer = "container:BetterFiltering.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F8588A125D5A9AF00B202A9"
-            BuildableName = "MTLTemplate.app"
-            BlueprintName = "MTLTemplate"
-            ReferencedContainer = "container:MTLTemplate.xcodeproj">
+            BuildableName = "BetterFiltering.app"
+            BlueprintName = "BetterFiltering"
+            ReferencedContainer = "container:BetterFiltering.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
