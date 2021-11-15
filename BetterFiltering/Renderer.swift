@@ -18,6 +18,8 @@ class Renderer: NSObject {
     
     var renderPipeline: MTLRenderPipelineState!
     
+    var pipelines: [String: MTLComputePipelineState]
+    
     // The current viewport size.
     var viewportSize: CGSize = CGSize()
     
@@ -37,6 +39,9 @@ class Renderer: NSObject {
     init(device: MTLDevice, renderDestination: RenderDestinationProvider) {
         self.device = device
         self.renderDestination = renderDestination
+        
+        pipelines = MetalUtils.buildComputePipelinesWithDevice(device: device, names: "better_filtering")
+        // pipelines = MetalUtils.buildComputePipelinesWithDevice(device: device, names: "better_filtering", "color_conversion")
         
         super.init()
         
@@ -203,6 +208,9 @@ class Renderer: NSObject {
         
         // Setup textures for the fragment shader.
         renderEncoder.setFragmentTexture(filteredTexture, index: 0)
+        
+        var time = Float(currentTime)
+        renderEncoder.setFragmentBytes(&time, length: MemoryLayout<Float>.size, index: 1)
         
         // Draw a quad which fills the screen.
         renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6)

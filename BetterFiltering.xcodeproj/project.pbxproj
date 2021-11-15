@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2D4361274288B700DD316A /* MetalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D4360274288B700DD316A /* MetalUtils.swift */; };
+		6F2D436927428B1000DD316A /* Filtering.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D436827428B1000DD316A /* Filtering.metal */; };
+		6F2D436C27428DDF00DD316A /* ColourConversion.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D436B27428DDF00DD316A /* ColourConversion.metal */; };
 		6F8588A625D5A9AF00B202A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8588A525D5A9AF00B202A9 /* AppDelegate.swift */; };
 		6F8588A825D5A9AF00B202A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8588A725D5A9AF00B202A9 /* ViewController.swift */; };
 		6F8588AA25D5A9B000B202A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F8588A925D5A9B000B202A9 /* Assets.xcassets */; };
@@ -16,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F2D4360274288B700DD316A /* MetalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalUtils.swift; sourceTree = "<group>"; };
+		6F2D436827428B1000DD316A /* Filtering.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Filtering.metal; sourceTree = "<group>"; };
+		6F2D436B27428DDF00DD316A /* ColourConversion.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ColourConversion.metal; sourceTree = "<group>"; };
+		6F2D436E27428E0000DD316A /* ColourConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColourConversion.h; sourceTree = "<group>"; };
 		6F8588A225D5A9AF00B202A9 /* BetterFiltering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterFiltering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8588A525D5A9AF00B202A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F8588A725D5A9AF00B202A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +67,11 @@
 				6F8588A525D5A9AF00B202A9 /* AppDelegate.swift */,
 				6F8588A725D5A9AF00B202A9 /* ViewController.swift */,
 				6F8588B625D5DEE200B202A9 /* Renderer.swift */,
+				6F2D4360274288B700DD316A /* MetalUtils.swift */,
 				6F8588BA25D5E13C00B202A9 /* Shaders.metal */,
+				6F2D436827428B1000DD316A /* Filtering.metal */,
+				6F2D436B27428DDF00DD316A /* ColourConversion.metal */,
+				6F2D436E27428E0000DD316A /* ColourConversion.h */,
 				6F8588A925D5A9B000B202A9 /* Assets.xcassets */,
 				6F8588AB25D5A9B000B202A9 /* Main.storyboard */,
 				6F8588AE25D5A9B000B202A9 /* Info.plist */,
@@ -142,6 +153,9 @@
 				6F8588A825D5A9AF00B202A9 /* ViewController.swift in Sources */,
 				6F8588B725D5DEE200B202A9 /* Renderer.swift in Sources */,
 				6F8588A625D5A9AF00B202A9 /* AppDelegate.swift in Sources */,
+				6F2D436927428B1000DD316A /* Filtering.metal in Sources */,
+				6F2D4361274288B700DD316A /* MetalUtils.swift in Sources */,
+				6F2D436C27428DDF00DD316A /* ColourConversion.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
